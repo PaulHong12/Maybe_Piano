@@ -1,4 +1,4 @@
-#  A Piano App That Allows Users to Play along Background Beats.
+#  Maybe Piano
 
 Credits:
 
