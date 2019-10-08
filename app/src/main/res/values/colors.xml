@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#081311</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#F8F7F7</color>
+    <color name="ivory">#F1EDED</color>
+    <color name="grey">#7A867C</color>
+    <color name="touched">#89B9CE</color>
+    <color name="black">#040704</color>
+    <color name="t_touched">#A27E7E</color>
+    <color name="first">#3BA5D6</color>
+    <color name="second">#E6D754</color>
+    <color name="third">#C858DB</color>
+
+</resources>
