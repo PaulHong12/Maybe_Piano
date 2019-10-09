@@ -56,23 +56,29 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
+                            android:padding="0dp"
+                            android:layout_marginTop="5dp"
                             android:contentDescription="TODO"
                             android:src="@drawable/play" />
 
                         <ImageButton
                             android:id="@+id/record"
+                            android:layout_marginTop="5dp"
+                            android:padding="0dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="50dp"
                             android:src="@drawable/record" />
 
                         <ImageButton
                             android:id="@+id/stop"
+                            android:layout_marginTop="5dp"
+                            android:padding="0dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="50dp"
                             android:src="@drawable/stop" />
 
                     </LinearLayout>
@@ -121,13 +127,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
-                            android:src="@drawable/drum" />
+                            android:padding="0dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/guitar" />
 
                         <ImageButton
                             android:id="@+id/toSettings"
                             android:layout_width="wrap_content"
+                            android:padding="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_marginBottom="15dp"
                             android:src="@drawable/settings" />
 

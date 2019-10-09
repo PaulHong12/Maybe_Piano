@@ -5,6 +5,14 @@
     <FrameLayout
         android:id="@+id/settings"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+<!--        <Switch-->
+<!--            android:id="@+id/nightMode"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:padding="16dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="choose"/>-->
+    </FrameLayout>
+
 
 </LinearLayout>

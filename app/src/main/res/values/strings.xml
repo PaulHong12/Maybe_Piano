@@ -1,4 +1,5 @@
 <resources>
+    <string name="dark_mode">dark</string>
     <string name="app_name">test</string>
     <string name="title_activity_beats">Beats</string>
     <string name="title_home">Acoustic</string>

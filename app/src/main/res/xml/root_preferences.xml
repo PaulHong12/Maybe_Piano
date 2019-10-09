@@ -25,13 +25,10 @@
             ></Preference>
     </PreferenceCategory>
     <SwitchPreference
+        android:key="@string/dark_mode"
         android:id="@+id/dark"
         app:defaultValue="true"
         app:title="Dark Mode"/>
-
-
-
-
 
 <!--    </PreferenceCategory>-->
 

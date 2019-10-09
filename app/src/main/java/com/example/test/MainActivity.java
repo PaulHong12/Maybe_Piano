@@ -1,6 +1,7 @@
 package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,25 +11,33 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.graphics.RectF;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Switch;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton toBeat,toSettings,start,record,stop;
-    View d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11;
-    View t1,t2,t3,t4,t5,t6,t7,t8;
-    Button first,second,third;
-    private MediaPlayer lD1,lD2,lD3,lD4,lD5,lD6,lD7;
-    private MediaPlayer lT1,lT2,lT3,lT4,lT5;
-    private MediaPlayer mD1,mD2,mD3,mD4,mD5,mD6,mD7,mD8,mD9,mD10,mD11;
-    private MediaPlayer mT1,mT2,mT3,mT4,mT5,mT6,mT7,mT8;
-    private MediaPlayer nD1,nD2,nD3,nD4,nD5,nD6,nD7;
-    private MediaPlayer nT1,nT2,nT3,nT4,nT5,nT6,nT7;
+    ImageButton toBeat, toSettings, start, record, stop;
+    View d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11;
+    View t1, t2, t3, t4, t5, t6, t7, t8,acousticView;
+    Button first, second, third;
+    private MediaPlayer lD1, lD2, lD3, lD4, lD5, lD6, lD7;
+    private MediaPlayer lT1, lT2, lT3, lT4, lT5;
+    private MediaPlayer mD1, mD2, mD3, mD4, mD5, mD6, mD7, mD8, mD9, mD10, mD11;
+    private MediaPlayer mT1, mT2, mT3, mT4, mT5, mT6, mT7, mT8;
+    private MediaPlayer nD1, nD2, nD3, nD4, nD5, nD6, nD7;
+    private MediaPlayer nT1, nT2, nT3, nT4, nT5, nT6, nT7;
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+    MediaPlayer acoustic,rock,retro;
+    ImageButton rock1Play,rock1Stop,acoustic1Play,acoustic1Stop,retro1Play,retro1Stop;
+
+
+    public View getAcousticView() {
+        return acousticView;
     }
 
     @Override
@@ -39,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         first = findViewById(R.id.first);
         second = findViewById(R.id.second);
         third = findViewById(R.id.third);
-
-
 
         //when first button was clicked
         first.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d1.setBackgroundColor(getResources().getColor(R.color.white));
@@ -80,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -99,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -118,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d4.setBackgroundColor(getResources().getColor(R.color.white));
@@ -137,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d5.setBackgroundColor(getResources().getColor(R.color.white));
@@ -156,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d6.setBackgroundColor(getResources().getColor(R.color.white));
@@ -175,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d7.setBackgroundColor(getResources().getColor(R.color.white));
@@ -194,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d8.setBackgroundColor(getResources().getColor(R.color.white));
@@ -213,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d9.setBackgroundColor(getResources().getColor(R.color.white));
@@ -232,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d10.setBackgroundColor(getResources().getColor(R.color.white));
@@ -251,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d11.setBackgroundColor(getResources().getColor(R.color.white));
@@ -270,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -289,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -308,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -327,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -346,6 +368,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t5.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -365,6 +388,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t6.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -384,6 +408,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t7.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -403,6 +428,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t8.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -411,7 +437,6 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 });
-
 
 
             }
@@ -434,6 +459,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d1.setBackgroundColor(getResources().getColor(R.color.white));
@@ -453,6 +479,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -472,6 +499,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -491,6 +519,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d4.setBackgroundColor(getResources().getColor(R.color.white));
@@ -510,6 +539,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d5.setBackgroundColor(getResources().getColor(R.color.white));
@@ -529,6 +559,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d6.setBackgroundColor(getResources().getColor(R.color.white));
@@ -548,6 +579,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d7.setBackgroundColor(getResources().getColor(R.color.white));
@@ -567,6 +599,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d8.setBackgroundColor(getResources().getColor(R.color.white));
@@ -586,6 +619,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d9.setBackgroundColor(getResources().getColor(R.color.white));
@@ -605,6 +639,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d10.setBackgroundColor(getResources().getColor(R.color.white));
@@ -624,6 +659,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d11.setBackgroundColor(getResources().getColor(R.color.white));
@@ -643,6 +679,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -662,6 +699,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -681,6 +719,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -700,6 +739,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -719,6 +759,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t5.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -738,6 +779,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t6.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -757,6 +799,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t7.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -776,6 +819,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t8.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -804,6 +848,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d1.setBackgroundColor(getResources().getColor(R.color.white));
@@ -823,6 +868,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -842,6 +888,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -861,6 +908,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d4.setBackgroundColor(getResources().getColor(R.color.white));
@@ -880,6 +928,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d5.setBackgroundColor(getResources().getColor(R.color.white));
@@ -899,6 +948,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d6.setBackgroundColor(getResources().getColor(R.color.white));
@@ -918,6 +968,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d7.setBackgroundColor(getResources().getColor(R.color.white));
@@ -937,6 +988,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d8.setBackgroundColor(getResources().getColor(R.color.white));
@@ -956,6 +1008,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d9.setBackgroundColor(getResources().getColor(R.color.white));
@@ -975,6 +1028,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d10.setBackgroundColor(getResources().getColor(R.color.white));
@@ -994,6 +1048,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 d11.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1013,6 +1068,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1032,6 +1088,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1051,6 +1108,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1070,6 +1128,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1089,6 +1148,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t5.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1108,6 +1168,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t6.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1127,6 +1188,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t7.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1146,6 +1208,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 String.valueOf(millisUntilFinished / 100);
                             }
+
                             @Override
                             public void onFinish() {
                                 t8.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1173,19 +1236,20 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("NewApi")
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                    mD1.start();
-                    d1.setBackgroundColor(getResources().getColor(R.color.touched));
-                    new CountDownTimer(1 * 100, 100) {
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                            String.valueOf(millisUntilFinished / 100);
-                        }
-                        @Override
-                        public void onFinish() {
-                            d1.setBackgroundColor(getResources().getColor(R.color.white));
-                        }
-                    }.start();
-                    return false;
+                mD1.start();
+                d1.setBackgroundColor(getResources().getColor(R.color.touched));
+                new CountDownTimer(1 * 100, 100) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        String.valueOf(millisUntilFinished / 100);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        d1.setBackgroundColor(getResources().getColor(R.color.white));
+                    }
+                }.start();
+                return false;
             }
         });
         d2.setOnTouchListener(new View.OnTouchListener() {
@@ -1199,6 +1263,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1218,6 +1283,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1237,6 +1303,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d4.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1256,6 +1323,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d5.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1275,6 +1343,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d6.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1294,6 +1363,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d7.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1313,6 +1383,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d8.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1332,6 +1403,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d9.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1351,6 +1423,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d10.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1370,6 +1443,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         d11.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1380,13 +1454,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //-1
-        lD1 = MediaPlayer.create(this,R.raw.lld1);
-        lD2 = MediaPlayer.create(this,R.raw.lld2);
-        lD3 = MediaPlayer.create(this,R.raw.lld3);
-        lD4 = MediaPlayer.create(this,R.raw.lld4);
-        lD5 = MediaPlayer.create(this,R.raw.lld5);
-        lD6 = MediaPlayer.create(this,R.raw.lld6);
-        lD7 = MediaPlayer.create(this,R.raw.lld7);
+        lD1 = MediaPlayer.create(this, R.raw.lld1);
+        lD2 = MediaPlayer.create(this, R.raw.lld2);
+        lD3 = MediaPlayer.create(this, R.raw.lld3);
+        lD4 = MediaPlayer.create(this, R.raw.lld4);
+        lD5 = MediaPlayer.create(this, R.raw.lld5);
+        lD6 = MediaPlayer.create(this, R.raw.lld6);
+        lD7 = MediaPlayer.create(this, R.raw.lld7);
 
         lT1 = MediaPlayer.create(this, R.raw.llt1);
         lT2 = MediaPlayer.create(this, R.raw.llt2);
@@ -1395,17 +1469,17 @@ public class MainActivity extends AppCompatActivity {
         lT5 = MediaPlayer.create(this, R.raw.llt5);
 
         //+0
-        mD1 = MediaPlayer.create(this,R.raw.d1);
-        mD2 = MediaPlayer.create(this,R.raw.d2);
-        mD3 = MediaPlayer.create(this,R.raw.d3);
-        mD4 = MediaPlayer.create(this,R.raw.d4);
-        mD5 = MediaPlayer.create(this,R.raw.d5);
-        mD6 = MediaPlayer.create(this,R.raw.d6);
-        mD7 = MediaPlayer.create(this,R.raw.d7);
-        mD8 = MediaPlayer.create(this,R.raw.d8);
-        mD9 = MediaPlayer.create(this,R.raw.d9);
-        mD10 = MediaPlayer.create(this,R.raw.d10);
-        mD11 = MediaPlayer.create(this,R.raw.d11);
+        mD1 = MediaPlayer.create(this, R.raw.d1);
+        mD2 = MediaPlayer.create(this, R.raw.d2);
+        mD3 = MediaPlayer.create(this, R.raw.d3);
+        mD4 = MediaPlayer.create(this, R.raw.d4);
+        mD5 = MediaPlayer.create(this, R.raw.d5);
+        mD6 = MediaPlayer.create(this, R.raw.d6);
+        mD7 = MediaPlayer.create(this, R.raw.d7);
+        mD8 = MediaPlayer.create(this, R.raw.d8);
+        mD9 = MediaPlayer.create(this, R.raw.d9);
+        mD10 = MediaPlayer.create(this, R.raw.d10);
+        mD11 = MediaPlayer.create(this, R.raw.d11);
 
         mT1 = MediaPlayer.create(this, R.raw.tt1);
         mT2 = MediaPlayer.create(this, R.raw.tt2);
@@ -1418,13 +1492,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //+1
-        nD1 = MediaPlayer.create(this,R.raw.nnd1);
-        nD2 = MediaPlayer.create(this,R.raw.nnd2);
-        nD3 = MediaPlayer.create(this,R.raw.nnd3);
-        nD4 = MediaPlayer.create(this,R.raw.nnd4);
-        nD5 = MediaPlayer.create(this,R.raw.nnd5);
-        nD6 = MediaPlayer.create(this,R.raw.nnd6);
-        nD7 = MediaPlayer.create(this,R.raw.nnd7);
+        nD1 = MediaPlayer.create(this, R.raw.nnd1);
+        nD2 = MediaPlayer.create(this, R.raw.nnd2);
+        nD3 = MediaPlayer.create(this, R.raw.nnd3);
+        nD4 = MediaPlayer.create(this, R.raw.nnd4);
+        nD5 = MediaPlayer.create(this, R.raw.nnd5);
+        nD6 = MediaPlayer.create(this, R.raw.nnd6);
+        nD7 = MediaPlayer.create(this, R.raw.nnd7);
 
         nT1 = MediaPlayer.create(this, R.raw.nnt1);
         nT2 = MediaPlayer.create(this, R.raw.nnt2);
@@ -1452,6 +1526,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1471,6 +1546,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1490,6 +1566,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1509,6 +1586,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1528,6 +1606,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t5.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1547,6 +1626,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t6.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1566,6 +1646,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t7.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1585,6 +1666,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         String.valueOf(millisUntilFinished / 100);
                     }
+
                     @Override
                     public void onFinish() {
                         t8.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -1616,6 +1698,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //getter for acousticView
+        acousticView = findViewById(R.id.Hard_Rock);
+
     }
 
     @Override
@@ -1624,7 +1711,7 @@ public class MainActivity extends AppCompatActivity {
         hideNav();
     }
 
-    private void hideNav(){
+    private void hideNav() {
         this.getWindow().getDecorView()
                 .setSystemUiVisibility(
                         View.SYSTEM_UI_FLAG_FULLSCREEN |
@@ -1634,8 +1721,6 @@ public class MainActivity extends AppCompatActivity {
                                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 );
+
     }
-
-
-
 }

@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/slow"
         android:title="Acoustic"
+        android:icon="@drawable/slow"
         />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/fastt"
+        android:icon="@drawable/moderate"
         android:title="Hard Rock" />
 
     <item
