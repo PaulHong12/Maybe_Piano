@@ -13,6 +13,6 @@ To be implemented:
 - fix some bugs
 - recording feature
 - simultaneous key press
-- allow users to add their own beat
+- allow users to add their own background sound 
 - adding drum beats as well
 - Ads 
